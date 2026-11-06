@@ -1,0 +1,30 @@
+{
+  "name": "mirco-fe-rspack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:remote": "cd remote && rspack dev",
+    "dev:remote2": "cd remote2 && rspack dev",
+    "dev:host": "cd host && rspack dev",
+    "dev": "trap 'kill 0' SIGINT; npm run dev:remote & npm run dev:remote2 & npm run dev:host & wait",
+    "build:remote": "cd remote && rspack build",
+    "build:remote2": "cd remote2 && rspack build",
+    "build:host": "cd host && rspack build",
+    "build": "npm run build:remote && npm run build:remote2 && npm run build:host"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@module-federation/runtime-tools": "^2.9.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@rspack/cli": "^2.3.1",
+    "@rspack/core": "^2.3.1",
+    "@rspack/dev-server": "^2.2.2"
+  }
+}
